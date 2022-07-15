@@ -22,6 +22,6 @@
 // }
 // },2000)
 
-setTimeout(() => {
-    document.getElementById('p-vacio').innerHTML = '<p>Hola mundo</p><button>Holanda</button>';
-},2000)
+// setTimeout(() => {
+//     document.getElementById('p-vacio').innerHTML = '<p>Hola mundo</p><button>Holanda</button>';
+// },2000)
