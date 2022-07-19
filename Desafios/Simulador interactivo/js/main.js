@@ -1,5 +1,6 @@
 let alumnos = [];
-function RegistrarAlumno() {
+
+function RegistrarAlumno() {//Registra alumnos en la lista
   cantidadAlumnos = parseInt(
     prompt("Ingrese la cantidad de alumnos que desea registrar")
   );
@@ -11,13 +12,13 @@ function RegistrarAlumno() {
   }
 }
 
-function MostrarAlumnos() {
+function MostrarAlumnos() {//Muestra los alumnos en el HTML
   for (i = 0; i < alumnos.length; i++) {
     console.log(alumnos[i].nombre, alumnos[i].legajo);
   }
 }
 
-function EliminarAlumnos() {
+function EliminarAlumnos() { //Elimina alumnos de la lista
   let eliminar = prompt("Ingrese el legajo del alumno que desea eliminar");
   for (i = 0; i < alumnos.length; i++) {
     if (alumnos[i].legajo == eliminar) {
@@ -26,7 +27,7 @@ function EliminarAlumnos() {
   }
 }
 
-function EditarAlumno() {
+function EditarAlumno() {//Edita alumnos de la lista
   let editar = prompt("Ingrese el legajo del alumno que desea editar");
   for (i = 0; i < alumnos.length; i++) {
     if (alumnos[i].legajo == editar) {
@@ -35,9 +36,7 @@ function EditarAlumno() {
   }
 }
 
-function CalcularPromedio() {
-  //Al finalizar, muestra los resultados en el HTML
-
+function CalcularPromedio() {//Al finalizar, muestra los resultados en el HTML
   const aprobados = [];
   const desaprobados = [];
   for (let alumnos = 1; alumnos < 4; alumnos++) {
@@ -78,5 +77,11 @@ let x = textos.length;
 // Generamos un número aleatorio entre 0 y el número de frases
 let numAleatorio = Math.round(Math.random() * (x - 1));
 // Mostramos la frase aleatoria
-let area = (document.getElementById("textArea").innerHTML =
-  textos[numAleatorio]);
+let area = (document.getElementById("textArea").innerHTML = textos[numAleatorio]);
+
+
+document.addEventListener("keyup", function (event) { //Evento que se ejecuta cuando se presiona una tecla (ENTER)
+  if (event.keyCode === 13) {
+    alert('Has presionado ENTER!');
+  }
+});
