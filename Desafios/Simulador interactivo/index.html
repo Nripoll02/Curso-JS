@@ -1,31 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
     <title>Simulador interactivo</title>
 </head>
+
 <body>
+    <div class="principal">
+        <h1>GESTION ESCOLAR</h1>
+        <h3>Nahuel Ripoll</h3>
+        <div id="textArea"></div>
+    </div>
     
-    <h1>Desafio: Simulador interactivo</h1>
-    <h2>Promedio de 2 notas</h2>
-    <h3>Nahuel Ripoll</h3> 
-    
-   
+    <br />
+    <br />
+    <div class="botones">
+        <button type="button" class="btn btn-primary" onclick="register()">Registrar Alumno</button>
+        <button type="button" class="btn btn-primary" onclick="MostrarAlumnos()">Mostrar Alumnos registrados</button>
+    </div>
 
-    <div id="textArea" style="font-size:x-large; font-style: italic; color: crimson;"></div>
     <br>
     <br>
-    <button onclick="RegistrarAlumno()">Registrar alumno</button>
-    <button onclick="MostrarAlumnos()">Mostrar alumnos registrados</button>
-    <button onclick="EditarAlumno()">Editar alumno</button>
-    <button onclick="EliminarAlumnos()">Eliminar alumno del registro</button>
-    <button onclick="CalcularPromedio()">Calcular promedio de 3 alumnos</button>
+
+    <div class="datos">
+        <label for="">NOMBRE: </label>
+        <input type="text" name="" id="nombre"><br><br>
+        <label for="">APELLIDO: </label>
+        <input type="text" name="" id="apellido"><br><br>
+        <label for="">LEGAJO: </label>
+        <input type="text" name="" id="legajo"><br><br>
+    </div>
+
+
+    <div class="alumnos">
+        <h2>Alumnos registrados</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Legajo</th>
+                    <th>Accion</th>
+                </tr>
+            </thead>
+            <tbody id="tabla">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td id="accion"></td>
+            </tbody>
+    </div>
+
+
+
+
     
-
-
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- SweetAlert2 - Libreria para alertas -->
     <script src="js/main.js"></script>
+
 </body>
+
 </html>

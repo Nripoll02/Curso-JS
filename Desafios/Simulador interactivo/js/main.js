@@ -1,66 +1,67 @@
 let alumnos = [];
+function register() {//funcion que se ejecuta al hacer click en el boton
+  let nombre = document.getElementById("nombre").value;
+  let apellido = document.getElementById("apellido").value;
+  let legajo = document.getElementById("legajo").value;
+  let alumno = {
+    nombre: nombre,
+    apellido: apellido,
+    legajo: legajo
+  };
+  alumnos.push(alumno);
+  localStorage.setItem("alumnos", JSON.stringify(alumnos));
 
-function RegistrarAlumno() {//Registra alumnos en la lista
-  cantidadAlumnos = parseInt(
-    prompt("Ingrese la cantidad de alumnos que desea registrar")
-  );
-  for (i = 0; i < cantidadAlumnos; i++) {
-    alumnos.push({
-      nombre: prompt("Ingrese el nombre del alumno"),
-      legajo: prompt("Ingrese el legajo del alumno"),
-    });
+
+  //Validacion
+  if (nombre == "" || apellido == "" || legajo == "") {
+    alert("Complete todos los campos");
   }
 }
 
+
+
 function MostrarAlumnos() {//Muestra los alumnos en el HTML
+  let storageList = JSON.parse(localStorage.getItem("alumnos"));
+  if(storageList == null){
+    storageList = [];
+  }else{
+    alumnos = storageList;
+  }
+  let tabla = document.getElementById("tabla");
   for (i = 0; i < alumnos.length; i++) {
-    console.log(alumnos[i].nombre, alumnos[i].legajo);
+    let fila = tabla.insertRow(i);
+    let nombre = fila.insertCell(0);
+    let apellido = fila.insertCell(1);
+    let legajo = fila.insertCell(2);
+    let eliminar = fila.insertCell(3);
+    let editar = fila.insertCell(3);
+    nombre.innerHTML = alumnos[i].nombre;
+    apellido.innerHTML = alumnos[i].apellido;
+    legajo.innerHTML = alumnos[i].legajo;
+    eliminar.innerHTML = "<button class='btn btn-primary' onclick='EliminarAlumnos()'>Eliminar</button>";
+    editar.innerHTML = "<button class='btn btn-primary'>Editar</button>";
   }
 }
 
 function EliminarAlumnos() { //Elimina alumnos de la lista
-  let eliminar = prompt("Ingrese el legajo del alumno que desea eliminar");
   for (i = 0; i < alumnos.length; i++) {
-    if (alumnos[i].legajo == eliminar) {
-      alumnos.splice(i, 1);
-    }
+    let fila = document.getElementById("tabla").deleteRow(i);
   }
 }
 
-function EditarAlumno() {//Edita alumnos de la lista
-  let editar = prompt("Ingrese el legajo del alumno que desea editar");
-  for (i = 0; i < alumnos.length; i++) {
-    if (alumnos[i].legajo == editar) {
-      alumnos[i].nombre = prompt("Ingrese el nombre del alumno");
-    }
-  }
-}
+//Editar alumnos de la lista
+// document.querySelector('#tabla').addEventListener('click', (e) => { //AUN NO SE COMO HACERLO
+//   target = e.target;
+//   if(target.classList.contains('#edit')){
+//     selectedRow = target.parentElement.parentElement;
+//     document.querySelector('#nombre').value = selectedRow.cells[0].textContent;
+//     document.querySelector('#apellido').value = selectedRow.cells[1].textContent;
+//     document.querySelector('#legajo').value = selectedRow.cells[2].textContent;
 
-function CalcularPromedio() {//Al finalizar, muestra los resultados en el HTML
-  const aprobados = [];
-  const desaprobados = [];
-  for (let alumnos = 1; alumnos < 4; alumnos++) {
-    let parcial, final, promedio;
-    nombre = prompt("Ingrese el nombre del alumno");
-    parcial = parseFloat(prompt("Parcial"));
-    final = parseFloat(prompt("Final"));
-    promedio = (parcial + final) / 2;
+//   }
+// })
 
-    if (promedio >= 7) {
-      document.write(
-        "El promedio de " + nombre + " es " + promedio + " APROBADO "
-      );
-      aprobados.push(promedio);
-      console.log(aprobados);
-    } else {
-      document.write(
-        "El promedio de " + nombre + " es " + promedio + " DESAPROBADO "
-      );
-      desaprobados.push(promedio);
-      console.log(desaprobados);
-    }
-  }
-}
+
 
 // Declaramos el array con frases ,el número de posiciones es indiferente
 let textos = new Array();
@@ -80,8 +81,6 @@ let numAleatorio = Math.round(Math.random() * (x - 1));
 let area = (document.getElementById("textArea").innerHTML = textos[numAleatorio]);
 
 
-document.addEventListener("keyup", function (event) { //Evento que se ejecuta cuando se presiona una tecla (ENTER)
-  if (event.keyCode === 13) {
-    alert('Has presionado ENTER!');
-  }
-});
+
+
+

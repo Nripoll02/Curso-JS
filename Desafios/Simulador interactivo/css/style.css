@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+.principal{
+    width: 100%;
+    height: 100%;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.principal h1{
+    font-size: 5em;
+    color: #000;
+    font-weight: bold;
+}
+.principal h3{
+    font-size: 3em;
+    color: #000;
+    font-weight: bold;
+}
+.principal #textArea{
+    font-size: 2em; 
+    font-style: italic; 
+    color: crimson;
+}
+.datos{
+    display:flex;
+    justify-content: center;
+    flex-direction: column
+    text-align: center;
+}
+
+.datos input{
+    margin-left: 2rem;
+    width: 15%;
+    box-shadow:  0 0 3px #000;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+.datos label{
+    margin-top: 1rem;
+    margin-left: 2rem;
+    font-size: 1.8em;
+    color: #000;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;
+}
+
+.botones{
+    display: flex;
+    justify-content:center; 
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.botones button{
+    margin-left: 1rem;
+    box-shadow: 0px 0px 10px #000;
+    font-size: 2rem;
+}
+
+.alumnos{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 5rem;
+}
+.alumnos h2{
+    font-size: 2.5em;
+    color: #000;
+    font-weight: bold;
+    margin-left: 95px;
+}
+.alumnos th{
+    font-size: 1.5em;
+    color: #000;
+    font-weight: bold;
+    text-align: center;
+    
+}
+.alumnos td{
+    font-size: 1.5em;
+    color: #000;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
+
