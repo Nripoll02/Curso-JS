@@ -12,7 +12,7 @@ form.addEventListener("submit", function (e) { //Cuando se hace submit al formul
 
 function addTodo() {
   const newTodo = input.value; //Obtenemos el valor del input
-  if (!newTodo) return; //Si no hay nada escrito no hacemos nada
+  if (!newTodo) return 0; //Si no hay nada escrito no hacemos nada
   todoList.push({ //Añadimos el nuevo todo a la lista
     text: newTodo,
     completed: false,
@@ -73,3 +73,36 @@ function render() {
   todo.appendChild(item); //Añadimos el li al todo
 }
 }
+
+function sweetAlert(){//Funcion para mostrar un alert con sweetalert 
+  Swal.fire({//Se crea una alerta con sweetalert
+    title: 'Creador: Nahuel Ripoll',
+    showClass: {
+      popup: 'animate__animated animate__fadeInDown'
+    },
+    hideClass: {
+      popup: 'animate__animated animate__fadeOutUp'
+    }
+  })
+}
+
+function toasty(){
+  toastr.success('Creador: Nahuel Ripoll', 'Toasty')
+}
+
+
+fetch('./data.json')
+  .then((resinicial) => resinicial.json())
+  .then((res) => {
+    const miArray = res;
+
+    let html = '';
+    for(let i = 0; i < miArray.length; i++){
+      html += `<li>${miArray[i].actividad}</li>`;
+    }
+    document.getElementById('actividad').innerHTML = html;
+    console.log(html);
+  })
+  .catch((e) => {
+    console.log(e);
+  });

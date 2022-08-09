@@ -13,7 +13,6 @@ body {
   margin: auto;
   color: #181818;
   min-height: 90vh;
-  margin-top: 2%;
 }
 .todo {
   width: 100%;
@@ -49,6 +48,7 @@ input {
   overflow-x: scroll;
 }
 #todo {
+  margin-top: 5%;
   padding: 0 10px 0 10px;
 }
 #todo li {
@@ -86,3 +86,23 @@ input {
   width: 6%;
   height: 5vh;
 }
+
+.btn-creditos{
+  margin-left: 85%;
+  margin-top: 2%;
+}
+
+.titulo{
+  font-size: large;
+  font-style: italic;
+  color: #181818;
+
+}
+.info{
+  margin-top: 2%;
+  margin-left: 1%;
+  width: 20%;
+  height: 100%;
+}
+
+
